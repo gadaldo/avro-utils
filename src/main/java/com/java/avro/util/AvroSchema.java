@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
  * @author giuseppe.adaldo
  *
  */
-public interface AvroSchema {
+interface AvroSchema {
 
 	default String format(Object... args) {
 		return String.format(getFormatter(), args);
@@ -20,7 +20,7 @@ public interface AvroSchema {
 
 	String getFormatter();
 
-	public static class AvroSchemaObject implements AvroSchema {
+	static class AvroSchemaObject implements AvroSchema {
 
 		private static final Logger LOG = LoggerFactory.getLogger(AvroSchema.class);
 
@@ -74,10 +74,10 @@ public interface AvroSchema {
 		 * @author giuseppe.adaldo
 		 *
 		 */
-		public abstract static class AvroRecord implements AvroSchema {
+		abstract static class AvroRecord implements AvroSchema {
 			private static final String TABLE_SCHEMA_INT_TYPE = "INTEGER";
 
-			private static final String AVRO_SCHEMA_INT_TYPE = "int";
+			private static final String AVRO_SCHEMA_INT_TYPE = "long";
 
 			private static final String TABLE_SCHEMA_RECORD_TYPE = "record";
 
@@ -143,7 +143,7 @@ public interface AvroSchema {
 		 * @author giuseppe.adaldo
 		 *
 		 */
-		public static final class NullableRecord extends AvroRecord {
+		static final class NullableRecord extends AvroRecord {
 			private static final String FORMATTER = "{\"name\": \"%s\", \"type\": [{\"type\": \"record\", \"name\": \"%s\", \"namespace\": \"%s\", \"fields\": [%s]}, \"null\"]},";
 
 			private NullableRecord() {
@@ -180,7 +180,7 @@ public interface AvroSchema {
 		 * @author giuseppe.adaldo
 		 *
 		 */
-		public static final class RepeatableRecord extends AvroRecord {
+		static final class RepeatableRecord extends AvroRecord {
 			private static final String FORMATTER = "{\"name\": \"%s\", \"type\": {\"type\": \"array\", \"items\": { \"type\": \"record\", \"name\":\"%s\", \"namespace\":\"%s\", \"fields\": [%s]}}},";
 
 			private RepeatableRecord() {
@@ -215,7 +215,7 @@ public interface AvroSchema {
 		 * @author giuseppe.adaldo
 		 *
 		 */
-		public static abstract class AvroField extends AvroRecord {
+		static abstract class AvroField extends AvroRecord {
 
 			private static final String TABLE_SCHEMA_NULLABLE = "NULLABLE";
 
@@ -262,7 +262,7 @@ public interface AvroSchema {
 			 * @author giuseppe.adaldo
 			 *
 			 */
-			public static final class NullableAvroField extends AvroField {
+			static final class NullableAvroField extends AvroField {
 				private static final String FORMATTER = "{\"name\": \"%s\", \"type\": [\"%s\", \"null\"]},";
 
 				private NullableAvroField() {

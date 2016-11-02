@@ -1,0 +1,1013 @@
+{
+	"type": "record",
+	"name": "Root",
+	"fields": [{
+		"name": "visitorId",
+		"type": ["long", "null"]
+	}, {
+		"name": "visitNumber",
+		"type": ["long", "null"]
+	}, {
+		"name": "visitId",
+		"type": ["float", "null"]
+	}, {
+		"name": "visitStartTime",
+		"type": ["long", "null"]
+	}, {
+		"name": "date",
+		"type": ["string", "null"]
+	}, {
+		"name": "totals",
+		"type": [{
+			"type": "record",
+			"name": "Totals",
+			"namespace": "root",
+			"fields": [{
+				"name": "visits",
+				"type": ["long", "null"]
+			}, {
+				"name": "hits",
+				"type": ["long", "null"]
+			}, {
+				"name": "pageviews",
+				"type": ["long", "null"]
+			}, {
+				"name": "timeOnSite",
+				"type": ["long", "null"]
+			}, {
+				"name": "bounces",
+				"type": ["long", "null"]
+			}, {
+				"name": "transactions",
+				"type": ["long", "null"]
+			}, {
+				"name": "transactionRevenue",
+				"type": ["long", "null"]
+			}, {
+				"name": "newVisits",
+				"type": ["long", "null"]
+			}, {
+				"name": "screenviews",
+				"type": ["long", "null"]
+			}, {
+				"name": "uniqueScreenviews",
+				"type": ["long", "null"]
+			}, {
+				"name": "timeOnScreen",
+				"type": ["long", "null"]
+			}, {
+				"name": "totalTransactionRevenue",
+				"type": ["long", "null"]
+			}]
+		}, "null"]
+	}, {
+		"name": "trafficSource",
+		"type": [{
+			"type": "record",
+			"name": "TrafficSource",
+			"namespace": "root",
+			"fields": [{
+				"name": "referralPath",
+				"type": ["string", "null"]
+			}, {
+				"name": "campaign",
+				"type": ["string", "null"]
+			}, {
+				"name": "source",
+				"type": ["string", "null"]
+			}, {
+				"name": "medium",
+				"type": ["string", "null"]
+			}, {
+				"name": "keyword",
+				"type": ["string", "null"]
+			}, {
+				"name": "adContent",
+				"type": ["string", "null"]
+			}, {
+				"name": "adwordsClickInfo",
+				"type": [{
+					"type": "record",
+					"name": "AdwordsClickInfo",
+					"namespace": "root.trafficsource",
+					"fields": [{
+						"name": "campaignId",
+						"type": ["long", "null"]
+					}, {
+						"name": "adGroupId",
+						"type": ["long", "null"]
+					}, {
+						"name": "creativeId",
+						"type": ["long", "null"]
+					}, {
+						"name": "criteriaId",
+						"type": ["long", "null"]
+					}, {
+						"name": "page",
+						"type": ["long", "null"]
+					}, {
+						"name": "slot",
+						"type": ["string", "null"]
+					}, {
+						"name": "criteriaParameters",
+						"type": ["string", "null"]
+					}, {
+						"name": "gclId",
+						"type": ["string", "null"]
+					}, {
+						"name": "customerId",
+						"type": ["long", "null"]
+					}, {
+						"name": "adNetworkType",
+						"type": ["string", "null"]
+					}, {
+						"name": "targetingCriteria",
+						"type": [{
+							"type": "record",
+							"name": "TargetingCriteria",
+							"namespace": "root.trafficsource.adwordsclickinfo",
+							"fields": [{
+								"name": "boomUserlistId",
+								"type": ["long", "null"]
+							}]
+						}, "null"]
+					}, {
+						"name": "isVideoAd",
+						"type": ["boolean", "null"]
+					}, {
+						"name": "adMatchType",
+						"type": ["string", "null"]
+					}, {
+						"name": "adFormat",
+						"type": ["string", "null"]
+					}, {
+						"name": "adKeywordMatchType",
+						"type": ["string", "null"]
+					}, {
+						"name": "adMatchedQuery",
+						"type": ["string", "null"]
+					}]
+				}, "null"]
+			}, {
+				"name": "isTrueDirect",
+				"type": ["boolean", "null"]
+			}, {
+				"name": "campaignCode",
+				"type": ["string", "null"]
+			}]
+		}, "null"]
+	}, {
+		"name": "device",
+		"type": [{
+			"type": "record",
+			"name": "Device",
+			"namespace": "root",
+			"fields": [{
+				"name": "browser",
+				"type": ["string", "null"]
+			}, {
+				"name": "browserVersion",
+				"type": ["string", "null"]
+			}, {
+				"name": "browserSize",
+				"type": ["string", "null"]
+			}, {
+				"name": "operatingSystem",
+				"type": ["string", "null"]
+			}, {
+				"name": "operatingSystemVersion",
+				"type": ["string", "null"]
+			}, {
+				"name": "isMobile",
+				"type": ["boolean", "null"]
+			}, {
+				"name": "mobileDeviceBranding",
+				"type": ["string", "null"]
+			}, {
+				"name": "mobileDeviceModel",
+				"type": ["string", "null"]
+			}, {
+				"name": "mobileInputSelector",
+				"type": ["string", "null"]
+			}, {
+				"name": "mobileDeviceInfo",
+				"type": ["string", "null"]
+			}, {
+				"name": "mobileDeviceMarketingName",
+				"type": ["string", "null"]
+			}, {
+				"name": "flashVersion",
+				"type": ["string", "null"]
+			}, {
+				"name": "javaEnabled",
+				"type": ["boolean", "null"]
+			}, {
+				"name": "language",
+				"type": ["string", "null"]
+			}, {
+				"name": "screenColors",
+				"type": ["string", "null"]
+			}, {
+				"name": "screenResolution",
+				"type": ["string", "null"]
+			}, {
+				"name": "deviceCategory",
+				"type": ["string", "null"]
+			}]
+		}, "null"]
+	}, {
+		"name": "geoNetwork",
+		"type": [{
+			"type": "record",
+			"name": "GeoNetwork",
+			"namespace": "root",
+			"fields": [{
+				"name": "continent",
+				"type": ["string", "null"]
+			}, {
+				"name": "subContinent",
+				"type": ["string", "null"]
+			}, {
+				"name": "country",
+				"type": ["string", "null"]
+			}, {
+				"name": "region",
+				"type": ["string", "null"]
+			}, {
+				"name": "metro",
+				"type": ["string", "null"]
+			}, {
+				"name": "city",
+				"type": ["string", "null"]
+			}, {
+				"name": "cityId",
+				"type": ["string", "null"]
+			}, {
+				"name": "networkDomain",
+				"type": ["string", "null"]
+			}, {
+				"name": "latitude",
+				"type": ["string", "null"]
+			}, {
+				"name": "longitude",
+				"type": ["string", "null"]
+			}, {
+				"name": "networkLocation",
+				"type": ["string", "null"]
+			}]
+		}, "null"]
+	}, {
+		"name": "customDimensions",
+		"type": {
+			"type": "array",
+			"items": {
+				"type": "record",
+				"name": "CustomDimensions",
+				"namespace": "root",
+				"fields": [{
+					"name": "index",
+					"type": ["long", "null"]
+				}, {
+					"name": "value",
+					"type": ["string", "null"]
+				}]
+			}
+		}
+	}, {
+		"name": "hits",
+		"type": {
+			"type": "array",
+			"items": {
+				"type": "record",
+				"name": "Hits",
+				"namespace": "root",
+				"fields": [{
+					"name": "hitNumber",
+					"type": ["long", "null"]
+				}, {
+					"name": "time",
+					"type": ["long", "null"]
+				}, {
+					"name": "hour",
+					"type": ["long", "null"]
+				}, {
+					"name": "minute",
+					"type": ["long", "null"]
+				}, {
+					"name": "isSecure",
+					"type": ["boolean", "null"]
+				}, {
+					"name": "isInteraction",
+					"type": ["boolean", "null"]
+				}, {
+					"name": "isEntrance",
+					"type": ["boolean", "null"]
+				}, {
+					"name": "isExit",
+					"type": ["boolean", "null"]
+				}, {
+					"name": "referer",
+					"type": ["string", "null"]
+				}, {
+					"name": "page",
+					"type": [{
+						"type": "record",
+						"name": "Page",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "pagePath",
+							"type": ["string", "null"]
+						}, {
+							"name": "hostname",
+							"type": ["string", "null"]
+						}, {
+							"name": "pageTitle",
+							"type": ["string", "null"]
+						}, {
+							"name": "searchKeyword",
+							"type": ["string", "null"]
+						}, {
+							"name": "searchCategory",
+							"type": ["string", "null"]
+						}, {
+							"name": "pagePathLevel1",
+							"type": ["string", "null"]
+						}, {
+							"name": "pagePathLevel2",
+							"type": ["string", "null"]
+						}, {
+							"name": "pagePathLevel3",
+							"type": ["string", "null"]
+						}, {
+							"name": "pagePathLevel4",
+							"type": ["string", "null"]
+						}]
+					}, "null"]
+				}, {
+					"name": "transaction",
+					"type": [{
+						"type": "record",
+						"name": "Transaction",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "transactionId",
+							"type": ["string", "null"]
+						}, {
+							"name": "transactionRevenue",
+							"type": ["long", "null"]
+						}, {
+							"name": "transactionTax",
+							"type": ["long", "null"]
+						}, {
+							"name": "transactionShipping",
+							"type": ["long", "null"]
+						}, {
+							"name": "affiliation",
+							"type": ["string", "null"]
+						}, {
+							"name": "currencyCode",
+							"type": ["string", "null"]
+						}, {
+							"name": "localTransactionRevenue",
+							"type": ["long", "null"]
+						}, {
+							"name": "localTransactionTax",
+							"type": ["long", "null"]
+						}, {
+							"name": "localTransactionShipping",
+							"type": ["long", "null"]
+						}, {
+							"name": "transactionCoupon",
+							"type": ["string", "null"]
+						}]
+					}, "null"]
+				}, {
+					"name": "item",
+					"type": [{
+						"type": "record",
+						"name": "Item",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "transactionId",
+							"type": ["string", "null"]
+						}, {
+							"name": "productName",
+							"type": ["string", "null"]
+						}, {
+							"name": "productCategory",
+							"type": ["string", "null"]
+						}, {
+							"name": "productSku",
+							"type": ["string", "null"]
+						}, {
+							"name": "itemQuantity",
+							"type": ["long", "null"]
+						}, {
+							"name": "itemRevenue",
+							"type": ["long", "null"]
+						}, {
+							"name": "currencyCode",
+							"type": ["string", "null"]
+						}, {
+							"name": "localItemRevenue",
+							"type": ["long", "null"]
+						}]
+					}, "null"]
+				}, {
+					"name": "contentInfo",
+					"type": [{
+						"type": "record",
+						"name": "ContentInfo",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "contentDescription",
+							"type": ["string", "null"]
+						}]
+					}, "null"]
+				}, {
+					"name": "appInfo",
+					"type": [{
+						"type": "record",
+						"name": "AppInfo",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "name",
+							"type": ["string", "null"]
+						}, {
+							"name": "version",
+							"type": ["string", "null"]
+						}, {
+							"name": "id",
+							"type": ["string", "null"]
+						}, {
+							"name": "installerId",
+							"type": ["string", "null"]
+						}, {
+							"name": "appInstallerId",
+							"type": ["string", "null"]
+						}, {
+							"name": "appName",
+							"type": ["string", "null"]
+						}, {
+							"name": "appVersion",
+							"type": ["string", "null"]
+						}, {
+							"name": "appId",
+							"type": ["string", "null"]
+						}, {
+							"name": "screenName",
+							"type": ["string", "null"]
+						}, {
+							"name": "landingScreenName",
+							"type": ["string", "null"]
+						}, {
+							"name": "exitScreenName",
+							"type": ["string", "null"]
+						}, {
+							"name": "screenDepth",
+							"type": ["string", "null"]
+						}]
+					}, "null"]
+				}, {
+					"name": "exceptionInfo",
+					"type": [{
+						"type": "record",
+						"name": "ExceptionInfo",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "description",
+							"type": ["string", "null"]
+						}, {
+							"name": "isFatal",
+							"type": ["boolean", "null"]
+						}, {
+							"name": "exceptions",
+							"type": ["long", "null"]
+						}, {
+							"name": "fatalExceptions",
+							"type": ["long", "null"]
+						}]
+					}, "null"]
+				}, {
+					"name": "eventInfo",
+					"type": [{
+						"type": "record",
+						"name": "EventInfo",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "eventCategory",
+							"type": ["string", "null"]
+						}, {
+							"name": "eventAction",
+							"type": ["string", "null"]
+						}, {
+							"name": "eventLabel",
+							"type": ["string", "null"]
+						}, {
+							"name": "eventValue",
+							"type": ["long", "null"]
+						}]
+					}, "null"]
+				}, {
+					"name": "product",
+					"type": {
+						"type": "array",
+						"items": {
+							"type": "record",
+							"name": "Product",
+							"namespace": "root.hits",
+							"fields": [{
+								"name": "productSKU",
+								"type": ["string", "null"]
+							}, {
+								"name": "v2ProductName",
+								"type": ["string", "null"]
+							}, {
+								"name": "v2ProductCategory",
+								"type": ["string", "null"]
+							}, {
+								"name": "productVariant",
+								"type": ["string", "null"]
+							}, {
+								"name": "productBrand",
+								"type": ["string", "null"]
+							}, {
+								"name": "productRevenue",
+								"type": ["long", "null"]
+							}, {
+								"name": "localProductRevenue",
+								"type": ["long", "null"]
+							}, {
+								"name": "productPrice",
+								"type": ["long", "null"]
+							}, {
+								"name": "localProductPrice",
+								"type": ["long", "null"]
+							}, {
+								"name": "productQuantity",
+								"type": ["long", "null"]
+							}, {
+								"name": "productRefundAmount",
+								"type": ["long", "null"]
+							}, {
+								"name": "localProductRefundAmount",
+								"type": ["long", "null"]
+							}, {
+								"name": "isImpression",
+								"type": ["boolean", "null"]
+							}, {
+								"name": "customDimensions",
+								"type": {
+									"type": "array",
+									"items": {
+										"type": "record",
+										"name": "CustomDimensions",
+										"namespace": "root.hits.product",
+										"fields": [{
+											"name": "index",
+											"type": ["long", "null"]
+										}, {
+											"name": "value",
+											"type": ["string", "null"]
+										}]
+									}
+								}
+							}, {
+								"name": "customMetrics",
+								"type": {
+									"type": "array",
+									"items": {
+										"type": "record",
+										"name": "CustomMetrics",
+										"namespace": "root.hits.product",
+										"fields": [{
+											"name": "index",
+											"type": ["long", "null"]
+										}, {
+											"name": "value",
+											"type": ["long", "null"]
+										}]
+									}
+								}
+							}, {
+								"name": "productListName",
+								"type": ["string", "null"]
+							}, {
+								"name": "productListPosition",
+								"type": ["long", "null"]
+							}, {
+								"name": "productListClicks",
+								"type": ["long", "null"]
+							}, {
+								"name": "productListViews",
+								"type": ["long", "null"]
+							}]
+						}
+					}
+				}, {
+					"name": "promotion",
+					"type": {
+						"type": "array",
+						"items": {
+							"type": "record",
+							"name": "Promotion",
+							"namespace": "root.hits",
+							"fields": [{
+								"name": "promoId",
+								"type": ["string", "null"]
+							}, {
+								"name": "promoName",
+								"type": ["string", "null"]
+							}, {
+								"name": "promoCreative",
+								"type": ["string", "null"]
+							}, {
+								"name": "promoPosition",
+								"type": ["string", "null"]
+							}]
+						}
+					}
+				}, {
+					"name": "promotionActionInfo",
+					"type": [{
+						"type": "record",
+						"name": "PromotionActionInfo",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "promoIsView",
+							"type": ["boolean", "null"]
+						}, {
+							"name": "promoIsClick",
+							"type": ["boolean", "null"]
+						}]
+					}, "null"]
+				}, {
+					"name": "refund",
+					"type": [{
+						"type": "record",
+						"name": "Refund",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "refundAmount",
+							"type": ["long", "null"]
+						}, {
+							"name": "localRefundAmount",
+							"type": ["long", "null"]
+						}]
+					}, "null"]
+				}, {
+					"name": "eCommerceAction",
+					"type": [{
+						"type": "record",
+						"name": "ECommerceAction",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "action_type",
+							"type": ["string", "null"]
+						}, {
+							"name": "step",
+							"type": ["long", "null"]
+						}, {
+							"name": "option",
+							"type": ["string", "null"]
+						}]
+					}, "null"]
+				}, {
+					"name": "experiment",
+					"type": {
+						"type": "array",
+						"items": {
+							"type": "record",
+							"name": "Experiment",
+							"namespace": "root.hits",
+							"fields": [{
+								"name": "experimentId",
+								"type": ["string", "null"]
+							}, {
+								"name": "experimentVariant",
+								"type": ["string", "null"]
+							}]
+						}
+					}
+				}, {
+					"name": "publisher",
+					"type": [{
+						"type": "record",
+						"name": "Publisher",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "dfpClicks",
+							"type": ["long", "null"]
+						}, {
+							"name": "dfpImpressions",
+							"type": ["long", "null"]
+						}, {
+							"name": "dfpMatchedQueries",
+							"type": ["long", "null"]
+						}, {
+							"name": "dfpMeasurableImpressions",
+							"type": ["long", "null"]
+						}, {
+							"name": "dfpQueries",
+							"type": ["long", "null"]
+						}, {
+							"name": "dfpRevenueCpm",
+							"type": ["long", "null"]
+						}, {
+							"name": "dfpRevenueCpc",
+							"type": ["long", "null"]
+						}, {
+							"name": "dfpViewableImpressions",
+							"type": ["long", "null"]
+						}, {
+							"name": "dfpPagesViewed",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsenseBackfillDfpClicks",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsenseBackfillDfpImpressions",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsenseBackfillDfpMatchedQueries",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsenseBackfillDfpMeasurableImpressions",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsenseBackfillDfpQueries",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsenseBackfillDfpRevenueCpm",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsenseBackfillDfpRevenueCpc",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsenseBackfillDfpViewableImpressions",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsenseBackfillDfpPagesViewed",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxBackfillDfpClicks",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxBackfillDfpImpressions",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxBackfillDfpMatchedQueries",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxBackfillDfpMeasurableImpressions",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxBackfillDfpQueries",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxBackfillDfpRevenueCpm",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxBackfillDfpRevenueCpc",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxBackfillDfpViewableImpressions",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxBackfillDfpPagesViewed",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxClicks",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxImpressions",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxMatchedQueries",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxMeasurableImpressions",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxQueries",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxRevenue",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxViewableImpressions",
+							"type": ["long", "null"]
+						}, {
+							"name": "adxPagesViewed",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsViewed",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsUnitsViewed",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsUnitsMatched",
+							"type": ["long", "null"]
+						}, {
+							"name": "viewableAdsViewed",
+							"type": ["long", "null"]
+						}, {
+							"name": "measurableAdsViewed",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsPagesViewed",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsClicked",
+							"type": ["long", "null"]
+						}, {
+							"name": "adsRevenue",
+							"type": ["long", "null"]
+						}, {
+							"name": "dfpAdGroup",
+							"type": ["string", "null"]
+						}, {
+							"name": "dfpAdUnits",
+							"type": ["string", "null"]
+						}, {
+							"name": "dfpNetworkId",
+							"type": ["string", "null"]
+						}]
+					}, "null"]
+				}, {
+					"name": "customVariables",
+					"type": {
+						"type": "array",
+						"items": {
+							"type": "record",
+							"name": "CustomVariables",
+							"namespace": "root.hits",
+							"fields": [{
+								"name": "index",
+								"type": ["long", "null"]
+							}, {
+								"name": "customVarName",
+								"type": ["string", "null"]
+							}, {
+								"name": "customVarValue",
+								"type": ["string", "null"]
+							}]
+						}
+					}
+				}, {
+					"name": "customDimensions",
+					"type": {
+						"type": "array",
+						"items": {
+							"type": "record",
+							"name": "CustomDimensions",
+							"namespace": "root.hits",
+							"fields": [{
+								"name": "index",
+								"type": ["long", "null"]
+							}, {
+								"name": "value",
+								"type": ["string", "null"]
+							}]
+						}
+					}
+				}, {
+					"name": "customMetrics",
+					"type": {
+						"type": "array",
+						"items": {
+							"type": "record",
+							"name": "CustomMetrics",
+							"namespace": "root.hits",
+							"fields": [{
+								"name": "index",
+								"type": ["long", "null"]
+							}, {
+								"name": "value",
+								"type": ["long", "null"]
+							}]
+						}
+					}
+				}, {
+					"name": "type",
+					"type": ["string", "null"]
+				}, {
+					"name": "social",
+					"type": [{
+						"type": "record",
+						"name": "Social",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "socialInteractionNetwork",
+							"type": ["string", "null"]
+						}, {
+							"name": "socialInteractionAction",
+							"type": ["string", "null"]
+						}, {
+							"name": "socialInteractions",
+							"type": ["long", "null"]
+						}, {
+							"name": "socialInteractionTarget",
+							"type": ["string", "null"]
+						}, {
+							"name": "socialNetwork",
+							"type": ["string", "null"]
+						}, {
+							"name": "uniqueSocialInteractions",
+							"type": ["long", "null"]
+						}, {
+							"name": "hasSocialSourceReferral",
+							"type": ["string", "null"]
+						}, {
+							"name": "socialInteractionNetworkAction",
+							"type": ["string", "null"]
+						}]
+					}, "null"]
+				}, {
+					"name": "latencyTracking",
+					"type": [{
+						"type": "record",
+						"name": "LatencyTracking",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "pageLoadSample",
+							"type": ["long", "null"]
+						}, {
+							"name": "pageLoadTime",
+							"type": ["long", "null"]
+						}, {
+							"name": "pageDownloadTime",
+							"type": ["long", "null"]
+						}, {
+							"name": "redirectionTime",
+							"type": ["long", "null"]
+						}, {
+							"name": "speedMetricsSample",
+							"type": ["long", "null"]
+						}, {
+							"name": "domainLookupTime",
+							"type": ["long", "null"]
+						}, {
+							"name": "serverConnectionTime",
+							"type": ["long", "null"]
+						}, {
+							"name": "serverResponseTime",
+							"type": ["long", "null"]
+						}, {
+							"name": "domLatencyMetricsSample",
+							"type": ["long", "null"]
+						}, {
+							"name": "domInteractiveTime",
+							"type": ["long", "null"]
+						}, {
+							"name": "domContentLoadedTime",
+							"type": ["long", "null"]
+						}, {
+							"name": "userTimingValue",
+							"type": ["long", "null"]
+						}, {
+							"name": "userTimingSample",
+							"type": ["long", "null"]
+						}, {
+							"name": "userTimingVariable",
+							"type": ["string", "null"]
+						}, {
+							"name": "userTimingCategory",
+							"type": ["string", "null"]
+						}, {
+							"name": "userTimingLabel",
+							"type": ["string", "null"]
+						}]
+					}, "null"]
+				}, {
+					"name": "sourcePropertyInfo",
+					"type": [{
+						"type": "record",
+						"name": "SourcePropertyInfo",
+						"namespace": "root.hits",
+						"fields": [{
+							"name": "sourcePropertyDisplayName",
+							"type": ["string", "null"]
+						}, {
+							"name": "sourcePropertyTrackingId",
+							"type": ["string", "null"]
+						}]
+					}, "null"]
+				}]
+			}
+		}
+	}, {
+		"name": "fullVisitorId",
+		"type": ["string", "null"]
+	}, {
+		"name": "userId",
+		"type": ["string", "null"]
+	}, {
+		"name": "channelGrouping",
+		"type": ["string", "null"]
+	}, {
+		"name": "socialEngagementType",
+		"type": ["string", "null"]
+	}]
+}

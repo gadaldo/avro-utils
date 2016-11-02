@@ -1,0 +1,138 @@
+{
+	"visitNumber": 2,
+	"visitId": "1471499309",
+	"visitStartTime": "1471499309",
+	"date": "20160818",
+	"totals": {
+		"visits": "1",
+		"hits": "2",
+		"pageviews": "1",
+		"timeOnSite": 2020,
+		"bounces": 1
+	},
+	"trafficSource": {
+		"campaign": "Slots - Slideshow",
+		"source": "google",
+		"medium": "cpc",
+		"keyword": "slots",
+		"adContent": "Slots Up to £50 Free Play",
+		"adwordsClickInfo": {
+			"campaignId": "634029031",
+			"adGroupId": "31428034397",
+			"creativeId": "100177176797",
+			"criteriaId": "10918081",
+			"page": "1",
+			"slot": "Top",
+			"criteriaParameters": "slots",
+			"gclId": "CLTC_K2iyc4CFcsp0wodaQ0Odg",
+			"customerId": "1191802883",
+			"adNetworkType": "Google Search",
+			"isVideoAd": false
+		},
+		"isTrueDirect": true
+	},
+	"device": {
+		"browser": "Chrome",
+		"browserVersion": "44.0.2403.133",
+		"operatingSystem": "Android",
+		"operatingSystemVersion": "6.0.1",
+		"isMobile": false,
+		"mobileDeviceBranding": "Samsung",
+		"mobileDeviceModel": "SM-G920F",
+		"mobileInputSelector": "touchscreen",
+		"flashVersion": "(not set)",
+		"javaEnabled": false,
+		"language": "en-gb",
+		"screenColors": "32-bit",
+		"screenResolution": "360x640",
+		"deviceCategory": "mobile"
+	},
+	"geoNetwork": {
+		"continent": "Europe",
+		"subContinent": "Northern Europe",
+		"country": "United Kingdom",
+		"region": "England",
+		"metro": "Meridian (exc. Channel Islands)"
+	},
+	"customDimensions": [{
+		"index": "3",
+		"value": "c32a8586-7e61-405e-b5bc-0ddf62b23949"
+	}],
+	"hits": [{
+		"hitNumber": "1",
+		"time": "0",
+		"hour": "6",
+		"minute": "48",
+		"isInteraction": true,
+		"isEntrance": true,
+		"isExit": true,
+		"page": {
+			"pagePath": "/",
+			"hostname": "play.monopolycasino.com",
+			"pageTitle": "MONOPOLY Casino - Collect your £20 Bonus!"
+		},
+		"appInfo": {
+			"screenName": "play.monopolycasino.com/",
+			"landingScreenName": "play.monopolycasino.com/",
+			"exitScreenName": "play.monopolycasino.com/",
+			"screenDepth": "0"
+		},
+		"exceptionInfo": {
+			"isFatal": false
+		},
+		"product": [],
+		"promotion": [],
+		"eCommerceAction": {
+			"action_type": "0",
+			"step": "1"
+		},
+		"experiment": [],
+		"customVariables": [],
+		"customDimensions": [{
+			"index": "3",
+			"value": "c32a8586-7e61-405e-b5bc-0ddf62b23949"
+		}],
+		"customMetrics": [],
+		"type": "PAGE"
+	}, {
+		"hitNumber": "2",
+		"time": "2",
+		"hour": "6",
+		"minute": "48",
+		"isInteraction": true,
+		"page": {
+			"pagePath": "/",
+			"hostname": "play.monopolycasino.com",
+			"pageTitle": "MONOPOLY Casino - Collect your £20 Bonus!"
+		},
+		"appInfo": {
+			"screenName": "play.monopolycasino.com/",
+			"landingScreenName": "play.monopolycasino.com/",
+			"exitScreenName": "play.monopolycasino.com/",
+			"screenDepth": "0"
+		},
+		"exceptionInfo": {
+			"isFatal": false
+		},
+		"eventInfo": {
+			"eventCategory": "Handheld",
+			"eventAction": "Orientation",
+			"eventLabel": "landscape"
+		},
+		"product": [],
+		"promotion": [],
+		"eCommerceAction": {
+			"action_type": "0",
+			"step": "1"
+		},
+		"experiment": [],
+		"customVariables": [],
+		"customDimensions": [{
+			"index": "3",
+			"value": "c32a8586-7e61-405e-b5bc-0ddf62b23949"
+		}],
+		"customMetrics": [],
+		"type": "EVENT"
+	}],
+	"fullVisitorId": "4790762612246076"
+}
