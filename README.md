@@ -29,11 +29,11 @@ Table schema conversion:
 
 ```java
 	
-	private final BigQueryToAvroSchema converter = BigQueryToAvroSchema.getInstance();
+	private final BigQueryToAvroSchema converter = BigQuerySchemaConverter.getInstance();
 	
 	private Schema getAvroSchema(TableSchema tableSchema) {
 		final Table table = getTableWithSchema();
-		final Schema schema = converter.buildSchema(table);
+		final Schema schema = converter.toAvroSchema(table);
 		return schema;
 	}
 ```
