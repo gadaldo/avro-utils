@@ -7,9 +7,8 @@ import org.apache.avro.Schema;
 
 import com.google.api.services.bigquery.model.Table;
 import com.google.api.services.bigquery.model.TableFieldSchema;
-import com.java.avro.util.AvroSchema.AvroSchemaObject;
-import com.java.avro.util.AvroSchema.AvroSchemaObject.AvroField;
-import com.java.avro.util.AvroSchema.AvroSchemaObject.AvroRecord;
+import com.java.avro.util.AvroSchemaObject.AvroField;
+import com.java.avro.util.AvroSchemaObject.AvroRecord;
 
 /**
  * Utility to transform a BigQuery table schema to an AVRO schema.
@@ -17,7 +16,7 @@ import com.java.avro.util.AvroSchema.AvroSchemaObject.AvroRecord;
  * @author giuseppe.adaldo
  *
  */
-public enum BigQueryToAvroSchema {
+public enum BigQuerySchemaConverter {
 
 	INSTANCE;
 
@@ -29,8 +28,8 @@ public enum BigQueryToAvroSchema {
 	 * @throws IOException
 	 * @throws GeneralSecurityException
 	 */
-	public Schema buildSchema(Table table) throws IOException, GeneralSecurityException {
-		final AvroSchemaObject schemaObject = AvroSchemaObject.build("Root");
+	public Schema toAvroSchema(Table table) throws IOException, GeneralSecurityException {
+		final AvroSchemaObject schemaObject = AvroSchemaObject.build("Root", "");
 		table.getSchema().getFields()
 				.stream()
 				.forEach(f -> schemaObject.add(getNestedRecord(f, "root")));
@@ -39,22 +38,21 @@ public enum BigQueryToAvroSchema {
 	}
 
 	private AvroRecord getNestedRecord(TableFieldSchema field, String namespace) {
-		final String type = AvroRecord.getType(field.getType());
+		final Schema.Type type = AvroRecord.getType(field.getType());
 		if (AvroRecord.isRecord(type)) {
-			final String localNamespace = AvroRecord.buildNamespace(namespace, field.getName());
-
-			final AvroRecord record = AvroRecord.buildAvroRecordByMode(field.getMode(), field.getName(), type, localNamespace);
+			final AvroRecord record = AvroRecord.buildAvroRecordByMode(field.getMode(), field.getName(), namespace,
+					field.getDescription());
 			if (field.getFields() != null) {
 				field.getFields().stream()
-						.forEach(f -> record.add(getNestedRecord(f, localNamespace)));
+						.forEach(f -> record.add(getNestedRecord(f, AvroRecord.formatNamespace(namespace, field.getName()))));
 			}
 			return record;
 		} else {
-			return AvroField.buildAvroField(field.getMode(), field.getName(), type);
+			return AvroField.buildAvroField(field.getMode(), field.getName(), type, field.getDescription());
 		}
 	}
 
-	public static BigQueryToAvroSchema getInstance() {
+	public static BigQuerySchemaConverter getInstance() {
 		return INSTANCE;
 	}
 

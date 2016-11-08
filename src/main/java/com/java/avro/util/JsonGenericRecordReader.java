@@ -9,6 +9,7 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.Deque;
@@ -22,11 +23,21 @@ import org.apache.avro.Schema;
 import org.apache.avro.Schema.Field;
 import org.apache.avro.Schema.Type;
 import org.apache.avro.generic.GenericData;
+import org.apache.avro.generic.GenericRecord;
 import org.apache.avro.generic.GenericRecordBuilder;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.api.services.bigquery.model.TableRow;
 
+/**
+ * Reads a json string or a map converting in a {@link GenericRecord}. <br>
+ * It's also usable when transforming a {@link TableRow} data to a {@link GenericRecord} skipping errors such us missing value field when nullable or
+ * empty arrays.
+ * 
+ * @author giuseppe.adaldo
+ *
+ */
 public class JsonGenericRecordReader {
 
 	private static final Object INCOMPATIBLE = new Object();
@@ -36,6 +47,10 @@ public class JsonGenericRecordReader {
 	public JsonGenericRecordReader() {
 		this.mapper = new ObjectMapper();
 		mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+	}
+
+	public GenericData.Record read(String data, Schema schema) {
+		return read(data.getBytes(StandardCharsets.UTF_8), schema);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -66,7 +81,8 @@ public class JsonGenericRecordReader {
 	private boolean isNullable(Field field) {
 		return field.schema().getTypes().stream()
 				.filter(s -> s.getType().equals(Type.NULL))
-				.findAny().isPresent();
+				.findAny()
+				.isPresent();
 	}
 
 	private GenericData.Record readRecord(Map<String, Object> json, Schema schema, Deque<String> path) {
@@ -144,7 +160,8 @@ public class JsonGenericRecordReader {
 	private Map<String, Object> readMap(Schema.Field field, Schema schema, Map<String, Object> map, Deque<String> path) {
 		return map.entrySet()
 				.stream()
-				.collect(toMap(Map.Entry::getKey, entry -> read(field, schema.getValueType(), entry.getValue(), path, false)));
+				.collect(toMap(
+						Map.Entry::getKey, entry -> read(field, schema.getValueType(), entry.getValue(), path, false)));
 	}
 
 	private Object readUnion(Schema.Field field, Schema schema, Object value, Deque<String> path) {

@@ -1,12 +1,12 @@
 package com.groovy.avro.util.test;
 
-import org.apache.avro.AvroRuntimeException;
-import org.apache.avro.Schema;
+import org.apache.avro.AvroRuntimeException
+import org.apache.avro.Schema
 import org.apache.avro.generic.GenericRecord
 
-import com.java.avro.util.JsonGenericRecordReader
+import spock.lang.Specification
 
-import spock.lang.Specification;
+import com.java.avro.util.JsonGenericRecordReader
 
 public class JsonGenericRecordReaderTest extends Specification {
 
@@ -62,7 +62,7 @@ public class JsonGenericRecordReaderTest extends Specification {
 		'''
 
 		when:
-		GenericRecord record = reader.read(jsonString.getBytes(), schema)
+		def record = reader.read(jsonString.getBytes(), schema)
 
 		then:
 		record != null
@@ -72,6 +72,7 @@ public class JsonGenericRecordReaderTest extends Specification {
 
 	def "should convert the whole record when nullable field is missing"() {
 
+		given:
 		def schemaString = '''
 		{
 		    "type": "record",
@@ -98,7 +99,7 @@ public class JsonGenericRecordReaderTest extends Specification {
 		'''
 
 		when:
-		GenericRecord record = reader.read(jsonString.getBytes(), schema)
+		def record = reader.read(jsonString.getBytes(), schema)
 
 		then:
 		record != null
@@ -260,10 +261,11 @@ public class JsonGenericRecordReaderTest extends Specification {
 		}
 		'''
 		when:
-		def GenericRecord record = reader.read(jsonString.getBytes(), schema)
+		def GenericRecord record = reader.read(jsonString, schema)
 
 		then:
 		record != null
+
 		record.get("field1") != null
 		record.get("field1") == 109998.566
 
@@ -389,11 +391,42 @@ public class JsonGenericRecordReaderTest extends Specification {
 		}
 		'''
 		when:
-		def record = reader.read(jsonString.getBytes(), schema)
+		def record = reader.read(jsonString, schema)
 
 		then:
 		def e = thrown AvroRuntimeException
 		e.message == 'Failed to convert JSON to Avro'
 		e.cause.toString() == 'org.apache.avro.AvroTypeException: Field suit is expected to be of enum type and be one of SPADES, HEARTS, DIAMONDS, CLUBS'
+	}
+
+	def "should throw exception when converting bad json string to map"() {
+		given:
+		def schemaString = '''
+		{
+			"name": "Root",
+			"type": "record",
+			"fields": [
+				{
+					"name": "suit",
+					"type": "string"
+				}
+			]
+		}
+		'''
+
+		def schema = new Schema.Parser().parse(schemaString)
+
+		def jsonString = '''
+		{
+		    "suit" : 
+		}
+		'''
+		when:
+		def record = reader.read(jsonString, schema)
+
+		then:
+		def e = thrown AvroRuntimeException
+		e.message == 'Failed to parse json to map format.'
+		e.cause.toString().contains('com.fasterxml.jackson.core.JsonParseException: Unexpected character (\'}\' (code 125)):')
 	}
 }
