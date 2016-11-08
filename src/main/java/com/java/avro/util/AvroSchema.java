@@ -58,7 +58,9 @@ class AvroSchemaObject {
 	}
 
 	/**
-	 * Generic Avro record representation.
+	 * Generic Avro record representation. A schema field can itself contains other fields, in that case it is a record. Bigquery record can be
+	 * 'nullable' or 'repeated' type only, so no map support is needed. Check out this information here:
+	 * {@link: https://cloud.google.com/bigquery/docs/data#nested}
 	 * 
 	 * @author giuseppe.adaldo
 	 *
@@ -89,6 +91,15 @@ class AvroSchemaObject {
 			return Type.RECORD.equals(type);
 		}
 
+		/**
+		 * Returns the avro type for the relative Bigquery schema value. <br>
+		 * See also {@link https://cloud.google.com/bigquery/docs/reference/rest/v2/tables},
+		 * {@link https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types} and {@link https://cloud.google.com/bigquery/data-types}
+		 * for more information about Bigquery types and SQL date/time representation. <br>
+		 * 
+		 * @param type string type
+		 * @return the avro schema type
+		 */
 		static Type getType(String type) {
 			switch (type) {
 			case "INTEGER":
