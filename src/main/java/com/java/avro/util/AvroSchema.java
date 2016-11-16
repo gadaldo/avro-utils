@@ -94,8 +94,8 @@ class AvroSchemaObject {
 		/**
 		 * Returns the avro type for the relative Bigquery schema value. <br>
 		 * See also {@link https://cloud.google.com/bigquery/docs/reference/rest/v2/tables},
-		 * {@link https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types} and {@link https://cloud.google.com/bigquery/data-types}
-		 * for more information about Bigquery types and SQL date/time representation. <br>
+		 * {@link https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types}, {@link https://cloud.google.com/bigquery/data-types} and
+		 * {@link https://cloud.google.com/bigquery/data-formats} for more information about Bigquery types and SQL date/time representation. <br>
 		 * 
 		 * @param type string type
 		 * @return the avro schema type
