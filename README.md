@@ -38,5 +38,29 @@ Table schema conversion:
 	}
 ```
 
+Avro schema conversion:
+
+```java
+
+	public TableSchema getTableSchema(GenericRecord message, TableSchema tableSchema) {
+		final TableSchema tableSchema = AvroSchemaConverter.toTableSchema(avroSchema, "firstRecor", "secondField" "internalField");
+		
+		return tableSchema;
+	}
+	
+```
+
+TableRow transformation from Avro record:
+
+```java
+
+	public TableRow getTableRow(GenericRecord message, TableSchema tableSchema) {
+		final TableRow tableRow = AvroUtils.convertGenericRecordToTableRow(message, tableSchema);
+		
+		return tableRow;
+	}
+	
+```
+
 Seen this has been tested on some internal Google Bigquery tables, 
 any review, bug or feedback is welcome so please contribute to it writing here.
